@@ -1,5 +1,3 @@
-
-
 function Target(ctx) {
     this.ctx = ctx;
   
@@ -10,7 +8,8 @@ function Target(ctx) {
     this.img.src = "img/icono-parking.png";
     this.width = 50;
     this.height = 50;
-  
+    this.w = this.width;
+    this.h = this.height;
   }
   
 
