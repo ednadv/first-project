@@ -20,14 +20,14 @@ function Game(canvasId) {
 }  
 
 Game.prototype.start = function() {
-    this.generateCarAndTarget()
+    // this.generateCarAndTarget()
     this.init();
 
     this.drawIntervalId = setInterval(function() {
         this.clean();
         this.draw();
         this.moveAll();
-        this.checkParking();
+        // this.checkParking();
         this.checkCollision();
 
        if (this.drawCaunter === 100){
@@ -41,32 +41,6 @@ Game.prototype.generateObstacle = function(){
     var obstacle = new Obstacle(this.ctx);
     this.obstacles.push(obstacle);
 }
-
-
-Game.prototype.generateCarAndTarget = function(target) {
-    var carLeft = this.car.x;
-        var carRight = this.car.x + (this.car.width);
-        var carTop = this.car.y;
-        var carBottom = this.car.y + (this.car.height);
-
-        var targeleLeft = target.x;
-        var targeeRight = target.x + (target.width);
-        var targeTop = target.y;
-        var targeBottom = target.y + (target.height);
-
-        var crash = true;
-        
-        if ((carBottom < obstacleTop)
-        || (carTop > obstacleBottom) 
-        || (carRight < obstacleLeft) 
-        || (carLeft > obstacleRight)) {
-           crash = false;
-        }
-
-        return crash;
-}
-
-
 
 
 Game.prototype.collideWith = function(obstacle) {
@@ -95,16 +69,12 @@ Game.prototype.collideWith = function(obstacle) {
 
 Game.prototype.checkCollision = function (){
     for (var i = 0; i < this.obstacles.length; i++) {
-        if(this.collideWith(this.target)){
-            this.win();
-        }
-        if (this.collideWith(this.obstacles[i])) {
+        if(this.collideWith(this.obstacles[i])){
+
             this.gameOver();
         }
     }
 }
-
-
 
 
 Game.prototype.gameOver = function() {
@@ -116,8 +86,6 @@ Game.prototype.gameOver = function() {
         this.ctx.canvas.width/2 - 200, 
         this.ctx.canvas.height/2
     ); // Pintamos un texto dando la posibilidad de volver a jugar
-
-    
 }
        
 Game.prototype.init =  function() {
