@@ -10,7 +10,7 @@ function Obstacle(ctx) {
   this.img = new Image();
   this.img.src = "./img/car_" + Math.floor(Math.random() * 4) + ".png";
   
-  this.vy = 1;
+  this.vy = 2;
 }
 
 Obstacle.prototype.draw = function() {
@@ -26,8 +26,7 @@ Obstacle.prototype.draw = function() {
     this.h
   );
 
-  this.ctx.strokeStyle = "red";
-  this.ctx.strokeRect(this.x, this.y, this.w, this.h)
+  
 };
 
 Obstacle.prototype.move = function() {

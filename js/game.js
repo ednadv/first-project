@@ -12,17 +12,17 @@ function Game(canvasId) {
     this.car = new Car(this.ctx);
     this.target = new Target(this.ctx);
     this.obstacle = new Obstacle(this.ctx); // Para poder acceder a la propiedad de vy
-    this.bg = new Background(this.ctx);
+    //this.bg = new Background(this.ctx);
     this.score = new Score(this.ctx);
     this.obstacles = [];
     this.drawCaunter = 0;
     this.restartKey = 'R';
 
     this.mainSound = document.createElement("audio");
-    this.mainSound.src = "sound/El-Exorcista.mp3";
+    this.mainSound.src = "sound/cacho a cacho.mp3";
 
     this.crashSound = document.createElement("audio");
-    this.crashSound.src = "sound/crash.mp3";
+    this.crashSound.src = "sound/Frenando.mp3";
 }  
 
 Game.prototype.start = function() {
@@ -91,7 +91,7 @@ Game.prototype.checkParking = function (){
 Game.prototype.gameWin = function(){
 
     clearInterval(this.drawIntervalId); // Paramos el juego
-    this.ctx.fillStyle="#FFFFFF";
+    this.ctx.fillStyle="#2d122a";
     this.ctx.font = "40px Georgia";
     this.ctx.fillText(
         'WIN!!!!!. Press '+ this.restartKey + ' to restart', // El texto que quiero escribir
@@ -106,8 +106,8 @@ Game.prototype.gameOver = function() {
     this.mainSound.pause()
     this.crashSound.play()
     clearInterval(this.drawIntervalId); // Paramos el juego
-    this.ctx.fillStyle="#FFFFFF";
-    this.ctx.font = "40px Georgia";
+    this.ctx.fillStyle = "#2d122a" ;
+this.ctx.font = "40px Georgia";
     this.ctx.fillText(
         'Game over. Press '+ this.restartKey + ' to restart', // El texto que quiero escribir
         this.ctx.canvas.width/2 - 200, 
@@ -131,7 +131,7 @@ Game.prototype.clean = function() {
 Game.prototype.draw =  function() {
     this.drawCaunter++;
 
-    this.bg.draw();
+    //this.bg.draw();
     this.car.draw();
     this.target.draw();
 

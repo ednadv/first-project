@@ -5,8 +5,6 @@ function Background(ctx) {
     this.y = 0;
     this.w = this.ctx.canvas.width;
     this.h = this.ctx.canvas.height;
-    this.img =  new Image();
-    this.img.src ="./img/Nueva-York.jpg";
 }
   
    

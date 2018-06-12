@@ -55,5 +55,5 @@ Car.prototype.draw = function() {
     this.height
   )
 
-  this.ctx.strokeRect(this.x, this.y, this.width, this.height)
+ 
 };
